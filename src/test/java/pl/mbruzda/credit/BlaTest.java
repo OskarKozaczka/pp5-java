@@ -7,25 +7,31 @@ import java.math.BigDecimal;
 public class BlaTest {
 
     @Test
-    public void itHandlesMultipleCardWithdraws(){
-        String card1 = thereIsCardWithLimit(1000);
-        String card2 = thereIsCardWithLimit(2000);
+    public void itHandleMultipleCardWithdraws() {
+        //A
+        String card1Number = thereIsCardWithLimit(1000);
+        String card2Number = thereIsCardWithLimit(2000);
 
         CardApi cardApi = thereIsCardApi();
+        //Act
+        cardApi.handleWithdraw(new withdrawRequest(card1Number, BigDecimal.valueOf(500)));
+        cardApi.handleWithdraw(new withdrawRequest(card2Number, BigDecimal.valueOf(1000)));        //A
 
-        cardApi.handleWithdraw(card1, BigDecimal.valueOf(500));
-        cardApi.handleWithdraw(card2, BigDecimal.valueOf(1000));
-
-        cardBalanceEquals(card1, 500);
-        cardBalanceEquals(card2, 1000);
+        cardBalanceEquals(card1Number, BigDecimal.valueOf(500));
+        cardBalanceEquals(card2Number, BigDecimal.valueOf(1000));
     }
 
-    private CardApi thereIsCardApi() {
+    private void cardBalanceEquals(String number, BigDecimal i) {
+
     }
 
     private String thereIsCardWithLimit(int i) {
+        return null;
     }
 
-    private void cardBalanceEquals(String card1, int i) {
+    private CardApi thereIsCardApi() {
+        return new CardApi();
     }
+
+
 }
