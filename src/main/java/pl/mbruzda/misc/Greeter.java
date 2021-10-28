@@ -1,4 +1,4 @@
-package pl.mbruzda.credit;
+package pl.mbruzda.misc;
 
 public class Greeter {
     public String hello(String name){

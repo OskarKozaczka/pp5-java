@@ -1,6 +1,8 @@
-package pl.mbruzda.credit;
+package pl.mbruzda.misc;
 
 import org.junit.jupiter.api.Test;
+import pl.mbruzda.misc.Greeter;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GreetingTest {
